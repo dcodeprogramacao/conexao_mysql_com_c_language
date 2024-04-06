@@ -34,8 +34,20 @@ https://downloads.mysql.com/archives/c-c/
 5. O projeto também está configurado com as instruções de compilação do gcc, dentro do tasks.json. Se estiver criando um projeto do início, você precisará incluir estas instruções de compilação para as bibliotecas do Connector/C:
 
     ````json
-    `.vscode/config.json`:7-18
+        "args": [
+            "-fdiagnostics-color=always",
+            "-g",
+            "${file}",
+            "-o",
+            "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "-I",
+            "C:/path/to/mysql-connector-c-6.1.11-win32/include",
+            "-L",
+            "C:/path/to/mysql-connector-c-6.1.11-win32/lib",
+            "-llibmysql"
+        ]
     ````
+
 6. Após a compilação, será necessário adicionar o arquivo libmysql.dll ou libmysql.dll (Windows/SO) ou libmysqlclient.so (Linux/SO) na mesma pasta de execução do projeto.
 
 
